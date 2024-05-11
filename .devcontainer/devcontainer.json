@@ -1,0 +1,12 @@
+{
+    "build": { "dockerfile": "../docker/Dockerfile" },
+    "runArgs": ["--name", "SVDeditorContainer",
+                "--hostname", "SVDeditorContainer"],
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash"
+            }
+        }
+    }
+}
