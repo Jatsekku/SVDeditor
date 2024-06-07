@@ -1,32 +1,18 @@
-import React, { useState } from 'react'
-import SVDFileLoader from './SVDFileLoader'
-import RegisterViewer from './RegisterViewer'
-import RegisterEditor from './RegisterEditor'
+import React from 'react'
+import RegisterEditor from './components/RegisterEditor'
+import TreeView from './components/TreeView'
+import styles from './styles/App.module.css'
 
-function App() {
-	const [registers, setRegisters] = useState([])
-	const [selectedRegister, setSelectedRegister] = useState(null)
-
-	const handleFileLoaded = parsedData => {
-		setRegisters(parsedData)
-	}
-
-	const handleRegisterSelect = register => {
-		setSelectedRegister(register)
-	}
-
-	const handleSave = updatedRegister => {
-		const updatedRegisters = registers.map(reg => (reg.id === updatedRegister.id ? updatedRegister : reg))
-		setRegisters(updatedRegisters)
-		setSelectedRegister(null) // Optional: close the editor after save
-	}
-
+const App = () => {
 	return (
-		<div className="App">
-			<h1>Edytor Plików SVD</h1>
-			<SVDFileLoader onFileLoaded={handleFileLoaded} />
-			<RegisterViewer registers={registers} onRegisterSelect={handleRegisterSelect} />
-			{selectedRegister && <RegisterEditor register={selectedRegister} onSave={handleSave} />}
+		<div className={styles.appContainer}>
+			<div className={styles.sidebar}>
+				<button className={styles.sidebarButton}>Open File</button>
+				<div className={styles.treeView}>{/* Tree View Content */}</div>
+			</div>
+			<div className={styles.content}>
+				<RegisterEditor />
+			</div>
 		</div>
 	)
 }

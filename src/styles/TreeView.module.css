@@ -1,0 +1,13 @@
+.treeView {
+    background-color: #aaa;
+    padding: 10px;
+    overflow-y: auto;
+  }
+  
+  .treeNode {
+    padding: 5px;
+    margin: 5px 0;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  
