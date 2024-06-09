@@ -1,6 +1,7 @@
 import React from 'react'
 import RegisterEditor from './components/RegisterEditor'
 import TreeView from './components/TreeView'
+import FileUpload from './components/FileUpload'
 import styles from './styles/App.module.css'
 
 const App = () => {
