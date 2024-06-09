@@ -1,0 +1,67 @@
+.wrapper {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1200px;
+}
+
+body {
+	font-family: 'Arial', sans-serif;
+	background-color: #333;
+	color: #fff;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	padding: 2em;
+}
+
+.appContainer {
+	display: flex;
+	/* height: 100vh; */
+	width: 100%;
+	background-color: #333;
+	color: #fff;
+}
+
+.sidebar {
+	width: 20%;
+	background-color: #444;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	border: 2px solid rgb(0, 110, 255);
+	border-radius: 10px;
+	box-shadow: 14px 14px 20px 5px rgba(0, 0, 0, 0.2);
+	margin-right: 30px;
+}
+
+.sidebarButton {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
+	background-color: rgb(0, 110, 255);
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.sidebarButton:hover {
+	background-color: rgb(0, 73, 168);
+}
+
+.treeView {
+	flex: 1;
+	background-color: #555;
+	padding: 10px;
+	overflow-y: auto;
+	border-radius: 5px;
+}
+
+.content {
+	width: 80%;
+	padding: 20px;
+}
