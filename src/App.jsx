@@ -1,3 +1,5 @@
+import React from 'react'
+import RegisterEditor from './components/RegisterEditor'
 import styles from './App.module.css'
 
 function App() {
