@@ -35,6 +35,7 @@ fn parse_svd_file(path: String) -> CommandResult<Device> {
     let mut svd_file = File::open(path)?;
     svd_file.read_to_string(&mut svd_content)?;
     let svd_content = svd::parse(&svd_content)?;
+    println!("{:?}", svd_content);
     Ok(svd_content)
 }
 
