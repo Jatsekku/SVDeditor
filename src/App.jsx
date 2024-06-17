@@ -1,4 +1,5 @@
 import React from 'react'
+import { invoke } from '@tauri-apps/api/tauri'
 import { open } from "@tauri-apps/api/dialog"
 import RegisterEditor from './components/RegisterEditor/RegisterEditor'
 import TreeView from './components/TreeView/TreeView'
@@ -9,7 +10,7 @@ async function pickFile() {
 		multiple: false,
 		title: "Select SVD file",
 	})
-	console.log(selectedPath)
+	invoke('parse_svd_file', { path: selectedPath}).then((message) => console.log(message))
 }
 
 const App = () => {
