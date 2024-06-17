@@ -24,6 +24,7 @@
 
         packages = with pkgs; [
           rustc
+          rustfmt
           nodejs_22
           cargo
           curl
