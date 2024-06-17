@@ -2200,6 +2200,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "roxmltree"
+version = "0.19.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3cd14fd5e3b777a7422cca79358c57a8f6e3a703d9ac187448d0daf220c2407f"
+
+[[package]]
 name = "rustc-demangle"
 version = "0.1.24"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2526,13 +2532,41 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7da8b5736845d9f2fcb837ea5d9e2628564b3b043a70948a3f0b778838c5fb4f"
 
 [[package]]
+name = "svd-parser"
+version = "0.14.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3d17a2c2ef5aa450e80d714232a5932e7d8a39cac092e9e9ef8411bc833de3c4"
+dependencies = [
+ "anyhow",
+ "roxmltree",
+ "svd-rs",
+ "thiserror",
+]
+
+[[package]]
+name = "svd-rs"
+version = "0.14.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6aea8090314157cc490b559da0c66f2228c066b56154f0321ad83b459a0a8278"
+dependencies = [
+ "once_cell",
+ "regex",
+ "serde",
+ "thiserror",
+]
+
+[[package]]
 name = "svdeditor"
 version = "0.0.0"
 dependencies = [
+ "anyhow",
  "serde",
  "serde_json",
+ "svd-parser",
+ "svd-rs",
  "tauri",
  "tauri-build",
+ "thiserror",
 ]
 
 [[package]]
