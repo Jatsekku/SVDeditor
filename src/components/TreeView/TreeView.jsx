@@ -1,24 +1,50 @@
 import React, { useEffect, useState } from 'react'
 import styles from './TreeView.module.css'
 
-const TreeView = () => {
-	const [nodes, setNodes] = useState([])
+const TreeNode = ({ node, label }) => {
+	const [isExpanded, setIsExpanded] = useState(false)
 
+	const handleToggle = () => {
+		setIsExpanded(!isExpanded)
+	}
+
+	// console.log(`Rendering TreeNode: ${label}`, node) // Debugowanie
+
+	return (
+		<div className={styles.treeNode}>
+			<div onClick={handleToggle}>
+				{label}: {typeof node === 'object' ? (isExpanded ? '-' : '+') : node}
+			</div>
+			{isExpanded && typeof node === 'object' && !Array.isArray(node) && (
+				// Jeśli node jest obiektem, iteruj przez jego klucze
+				<div className={styles.treeChildren}>
+					{Object.keys(node).map(key => (
+						<TreeNode key={key} label={key} node={node[key]} />
+					))}
+				</div>
+			)}
+			{isExpanded && Array.isArray(node) && (
+				// Jeśli node jest tablicą, iteruj przez jej elementy
+				<div className={styles.treeChildren}>
+					{node.map((item, index) => (
+						<TreeNode key={index} label={item.name || index} node={item} />
+					))}
+				</div>
+			)}
+		</div>
+	)
+}
+
+const TreeView = ({ data }) => {
 	useEffect(() => {
-		// Fetch tree nodes from backend
-		setNodes([
-			{ id: 1, name: 'Node 1' },
-			{ id: 2, name: 'Node 2' },
-			{ id: 3, name: 'Node 3' },
-		])
-	}, [])
+		console.log('TreeView data:', data)
+	}, [data])
 
 	return (
 		<div className={styles.treeView}>
-			{nodes.map(node => (
-				<div key={node.id} className={styles.treeNode}>
-					{node.name}
-				</div>
+			{/* Iterowanie przez główne klucze obiektu data */}
+			{Object.keys(data).map(key => (
+				<TreeNode key={key} label={key} node={data[key]} />
 			))}
 		</div>
 	)
