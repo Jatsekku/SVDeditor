@@ -37,6 +37,7 @@
           libsoup
           webkitgtk
           librsvg
+          commitlint
         ];
       in
       {
