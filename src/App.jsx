@@ -3,6 +3,7 @@ import { invoke } from '@tauri-apps/api/tauri'
 import { open } from '@tauri-apps/api/dialog'
 import RegisterEditor from './components/RegisterEditor/RegisterEditor'
 import TreeView from './components/TreeView/TreeView'
+import BitsEditor from './components/BitsEditor/BitsEditor'
 import styles from './App.module.css'
 
 const App = () => {
@@ -31,7 +32,7 @@ const App = () => {
 				</div>
 			</div>
 			<div className={styles.content}>
-				<RegisterEditor />
+				<BitsEditor />
 			</div>
 		</div>
 	)
